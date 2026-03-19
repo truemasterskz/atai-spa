@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atai — Мудрость Наурыза</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+
+  </head>
+  <body>
+
+    <header>
+      <div class="logo">
+        <span class="logo-name">Atai</span>
+        <span class="logo-tag">Ата · AI · Наурыз</span>
+      </div>
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLang('ru',this)">РУС</button>
+        <button class="lang-btn" onclick="setLang('kz',this)">ҚАЗ</button>
+      </div>
+    </header>
+
+    <main>
+      <aside class="left">
+        <div class="kz-bg"></div>
+        <div class="embers" id="embers"></div>
+        <div class="orn top"></div>
+        <div class="elder-ring">👴🏼</div>
+        <p class="elder-quote" id="heroQuote">"Балам, отыр —<br>сенімен сөйлесейік..."</p>
+        <p class="elder-desc" id="heroDesc">Мудрый аксакал расскажет о Наурызе, его традициях и смысле. Спроси — и услышишь то, что передавали предки из уст в уста.</p>
+        <div class="orn bottom"></div>
+      </aside>
+
+      <div class="right">
+        <div class="chips-bar" id="chipsBar"></div>
+        <div class="messages" id="messages">
+          <div class="welcome" id="welcome">
+            <div class="welcome-title" id="welcomeTitle">Наурыз мейрамыңмен, балам!</div>
+            <p class="welcome-text" id="welcomeText">Я — Ата. Задай мне любой вопрос о Наурызе — традициях, обрядах, еде, играх и смысле этого великого праздника.</p>
+          </div>
+        </div>
+        <div class="input-area">
+          <div class="input-row">
+            <textarea id="inp" rows="1" placeholder="Спроси Ату о Наурызе..." onkeydown="onKey(event)" oninput="resize(this)"></textarea>
+            <button class="send-btn" id="sendBtn" onclick="send()">
+              <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <button class="footer-link" onclick="openModal('about')">О проекте</button>
+      <span class="footer-sep">·</span>
+      <button class="footer-link" onclick="openModal('faq')">FAQ</button>
+      <span class="footer-sep">·</span>
+      <a class="footer-link" href="https://github.com" target="_blank">GitHub</a>
+      <span class="footer-sep">·</span>
+      <span class="footer-link" style="opacity:.4;cursor:default">Baige Hackathon 2025</span>
+    </footer>
+
+    <!-- MODAL: О проекте -->
+    <div class="modal-overlay" id="modal-about" style="display:none" onclick="if(event.target===this)closeModal('about')">
+      <div class="modal">
+        <h2>О проекте Atai</h2>
+        <p><strong style="color:var(--gold)">Atai</strong> — AI-собеседник в образе мудрого казахского аксакала. Название объединяет «Ата» (дедушка) и «AI».</p>
+        <p>Миссия: сделать традиции Наурыза живыми и доступными для молодёжи через технологии. Не справочник — а разговор с предком у ночного костра.</p>
+        <ul>
+          <li>Рассказывает о смысле и обрядах Наурыза</li>
+          <li>Говорит тепло, с пословицами и личными историями</li>
+          <li>Работает на русском и казахском языках</li>
+          <li>Создан за 24 часа на Baige Hackathon 2025, Шымкент</li>
+        </ul>
+        <button class="modal-close" onclick="closeModal('about')">Закрыть</button>
+      </div>
+    </div>
+
+    <!-- MODAL: FAQ -->
+    <div class="modal-overlay" id="modal-faq" style="display:none" onclick="if(event.target===this)closeModal('faq')">
+      <div class="modal">
+        <h2>Часто задаваемые вопросы</h2>
+        <p><strong style="color:var(--gold)">Кто такой Ата?</strong><br>Виртуальный казахский аксакал — персонаж, воплощающий мудрость предков о Наурызе.</p>
+        <p><strong style="color:var(--gold)">На каких языках говорит Ата?</strong><br>На русском и казахском. Переключайте кнопкой в правом верхнем углу.</p>
+        <p><strong style="color:var(--gold)">Что можно спросить?</strong><br>Всё о Наурызе: традиции, история, Наурыз-коже, игры, музыка, символика, обряды примирения.</p>
+        <p><strong style="color:var(--gold)">Это настоящий AI?</strong><br>Да — под капотом работает Claude (Anthropic). Ата — это персонаж поверх мощной языковой модели.</p>
+        <button class="modal-close" onclick="closeModal('faq')">Закрыть</button>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+
+  </body>
+</html>
